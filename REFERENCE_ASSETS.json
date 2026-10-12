@@ -1,0 +1,47 @@
+[
+  {
+    "asset": "assets/reference-menu.png",
+    "source": "01-1000050687.png",
+    "sha256": "64e511d0758d2ea3bcd53177e3186984cb0068d779342767351136b5c093d94f"
+  },
+  {
+    "asset": "assets/reference-basement.png",
+    "source": "02-1000050683.png",
+    "sha256": "aef9e9d9e7e8082e3ffd110710ca2d71ac1f7d1de2b7d20eeb273543090dc0ab"
+  },
+  {
+    "asset": "assets/reference-kitchen.png",
+    "source": "03-1000050684.png",
+    "sha256": "037309ff2c0293d7c9673db3b98bc1f9074aef236abf0da3437dfe0896e2754e"
+  },
+  {
+    "asset": "assets/reference-upstairs.png",
+    "source": "04-1000050685.png",
+    "sha256": "5941b79ce049629f727103b89880f13c3bbfd89bd40cde0248bab30fe6916afc"
+  },
+  {
+    "asset": "assets/reference-living.png",
+    "source": "05-1000050686.png",
+    "sha256": "036ab41bf7227e7ac072b8a9ee09653210123038687300dcaf4f01cfa62fa6df"
+  },
+  {
+    "asset": "assets/reference-jumpscare.jpg",
+    "source": "06-1000050688.jpg",
+    "sha256": "324cf80c1838adb594a6c652a5c2e0fa54cbab5cd5e58c0fcae0131ff63f4946"
+  },
+  {
+    "asset": "assets/reference-caught.jpg",
+    "source": "07-1000050690.jpg",
+    "sha256": "5cf2894763e64fa4b6c1455879178e0ff21fb34bccacee8558d1a4128a9d10e5"
+  },
+  {
+    "asset": "assets/reference-nathaniel.png",
+    "source": "08-1000050670.png",
+    "sha256": "89e483e1f482a33a749b5d2e8e2cb56ab1fa65c3860f79e38254352e420fff81"
+  },
+  {
+    "asset": "assets/reference-evelyn.png",
+    "source": "09-1000050669.png",
+    "sha256": "748c88e889ca052408352bac3b1e59a0bc0d9ac6791ace472fceca7115f2c673"
+  }
+]

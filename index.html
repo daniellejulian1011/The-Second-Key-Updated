@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#111411"><meta name="description" content="The Second Key — a 1990 first-person home-invasion horror story. Explore, photograph, hide and survive."><title>The Second Key — He already has a way in.</title><link id="game-icon" rel="icon" type="image/png"><link rel="stylesheet" href="style.css"></head>
+<body>
+<div id="app" class="at-menu">
+ <canvas id="world" aria-label="Explorable first-person house. WASD to walk, drag to look, E to interact."></canvas>
+ <div id="weather" aria-hidden="true"></div><div class="grain" aria-hidden="true"></div><div class="vignette" aria-hidden="true"></div><div id="red-edge" aria-hidden="true"></div><div id="flash" aria-hidden="true"></div><div id="transition" aria-hidden="true"></div>
+ <section id="menu" aria-label="Main menu">
+  <div class="menu-scene" id="menu-scene"></div><div class="menu-shadow"></div>
+  <div class="menu-content"><div class="eyebrow">A NIGHT IN GRAYSWICK</div><h1><span class="the">THE</span>SECOND KEY<span class="key-mark" aria-hidden="true">⚿</span></h1><p class="tagline">HE ALREADY HAS A WAY IN.</p>
+   <nav class="main-nav"><button data-cmd="new" class="ornate selected"><span>NEW GAME</span><small>ENTER THE PRICE HOUSE</small></button><button data-cmd="continue" id="continue-button">CONTINUE</button><button data-cmd="chapters">CHAPTER SELECT</button><button data-cmd="endings">ENDINGS <span id="ending-count">0 / 8</span></button><button data-cmd="settings">SETTINGS</button><button data-cmd="exitGame">EXIT</button></nav>
+   <div class="menu-note"><span class="line"></span>360° EXPLORATION · EIGHT ENDINGS</div><button class="menu-yard" data-cmd="arrival">EXPLORE THE FRONT YARD ↗</button>
+  </div>
+  <button class="scene-hotspot porch" data-cmd="arrival" aria-label="Explore the front yard and enter the house"><span>ENTER THE HOUSE ↗</span></button>
+  <button class="scene-hotspot mailbox" data-cmd="mailboxLore" aria-label="Inspect the mailbox"><span>2147 SYCAMORE LANE</span></button>
+  <button class="scene-hotspot bedroom" data-cmd="bedroomLore" aria-label="Look at Evelyn’s bedroom window"><span>A LIGHT LEFT ON</span></button>
+  <div class="menu-footer"><span>FRIDAY, OCTOBER 26</span><span>GRAYSWICK, PENNSYLVANIA</span><b>1990</b></div>
+ </section>
+ <section id="hud" aria-label="Gameplay interface" hidden>
+  <header class="hud-top"><div class="location"><h2 id="room-name">LIVING ROOM</h2><div class="rule"></div><span id="clock">10:47 PM</span><span class="chapter" id="chapter-label">I · THE FIRST CALL</span></div><div class="objective"><small>OBJECTIVE</small><div class="rule"></div><em id="objective-text">The telephone is ringing.</em></div><button class="pause-button" data-cmd="pause" aria-label="Pause game">Ⅱ</button></header>
+  <div id="chapter-toast"></div><div id="crosshair" aria-hidden="true">＋</div><button id="focus-prompt" data-cmd="interact" hidden></button><div id="camera-overlay" hidden><div class="camera-frame"></div><span id="film-counter">18 EXPOSURES · 360°</span></div>
+  <div class="meters"><div class="meter stamina"><span>STAMINA</span><i id="stamina-fill"></i></div><div class="meter battery"><span>BATTERY</span><i id="battery-fill"></i></div><div class="meter breath" id="breath-meter" hidden><span>BREATH</span><i id="breath-fill"></i></div></div>
+  <div id="hidden-view" hidden><div class="slats"></div><span id="hide-status">HIDDEN · KEEP STILL</span><button data-cmd="hold" id="hold-button">HOLD BREATH</button></div>
+  <div id="equipped-photo" hidden><img alt="Your equipped photograph"><button data-cmd="reviewEquipped">INSPECT 360° PHOTO ↗</button></div>
+  <div class="story-ui"><div class="dialogue-area"><div class="dialogue ornate"><div class="branch-art" aria-hidden="true"></div><div class="dialogue-copy"><span id="speaker">EVELYN</span><div class="rule"></div><p id="caption">The house sounds different when no one else is home.</p></div><button id="replay-line" data-cmd="replayVoice" aria-label="Replay this voice line">♪</button></div>
+    <div class="inventory-panel"><span class="inventory-label">INVENTORY</span><div class="inventory">
+     <button data-cmd="equipFlash" class="item-slot" id="slot-flash" aria-label="Equip flashlight"><span class="pixel-icon"></span><span>FLASHLIGHT</span><kbd>1</kbd></button>
+     <button data-cmd="keysInfo" class="item-slot" id="slot-keys" aria-label="Inspect keys"><span class="pixel-icon"></span><span>KEYS</span></button>
+     <button data-cmd="equipCamera" class="item-slot" id="slot-camera" aria-label="Equip camera"><span class="pixel-icon"></span><span>CAMERA</span><kbd>2</kbd></button>
+     <button data-cmd="tapeInfo" class="item-slot" id="slot-tape" aria-label="Review cassette evidence"><span class="pixel-icon"></span><span>CASSETTE</span></button>
+     <button data-cmd="photos" class="item-slot" id="slot-photos" aria-label="View and equip photographs"><span class="pixel-icon"></span><span>PHOTOS</span><kbd>3</kbd></button>
+     <button data-cmd="evidence" class="item-slot small-slot"><span class="symbol">≋</span><span>EVIDENCE</span><b id="clue-count">0</b></button>
+     <button data-cmd="map" class="item-slot small-slot"><span class="symbol">⌖</span><span>FLOOR PLAN</span></button>
+     <button data-cmd="journal" class="item-slot small-slot"><span class="symbol">≋</span><span>JOURNAL</span></button>
+    </div></div>
+   </div><div id="choices" class="choices" aria-label="Available story choices"></div></div>
+  <div class="control-hint" id="control-hint">WASD · WALK &nbsp; DRAG · LOOK &nbsp; E · INTERACT &nbsp; F · LIGHT &nbsp; C · PHOTO &nbsp; SHIFT · RUN</div>
+  <div id="touch-controls"><div id="joystick"><span></span></div><div class="touch-actions"><button data-cmd="interact" aria-label="Interact">E</button><button data-cmd="touchRun" aria-label="Toggle sprint">RUN</button><button data-cmd="crouch" aria-label="Toggle crouch">CROUCH</button><button data-cmd="tool" aria-label="Use equipped tool">USE</button></div></div>
+ </section>
+ <section id="capture" hidden aria-label="Capture sequence"><img src="assets/reference-jumpscare.jpg" data-asset="assets/reference-jumpscare.jpg" alt="Nathaniel lunging toward Evelyn"><div class="capture-scratch"></div><span>YOU CAN’T KEEP ME OUT.</span></section>
+ <section id="outcome" hidden aria-label="Game outcome"></section>
+ <div id="toast" role="status" aria-live="polite"></div>
+ <div id="modal-layer" hidden><section id="modal" role="dialog" aria-modal="true" aria-label="Game menu" tabindex="-1"></section></div>
+ <div id="load-error" hidden></div>
+</div>
+<noscript><div class="noscript">THE SECOND KEY NEEDS JAVASCRIPT TO PLAY. ENABLE JAVASCRIPT AND RELOAD.</div></noscript>
+<script type="module" src="js/app.js"></script>
+</body></html>
